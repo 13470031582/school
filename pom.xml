@@ -81,6 +81,13 @@
         </dependency>
         <!--redis end-->
 
+        <!--elasticsearch begin-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+        <!--elasticsearch end-->
+
         <!--mybatis-plus begin-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
