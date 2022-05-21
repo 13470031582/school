@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<style>
+			table{border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px;}
+			th{border: 1px solid gray; padding: 4px; background-color: #ddd;}
+			td{border: 1px solid gray; padding: 4px;}
+			tr:nth-child(2n){background-color: #f8f8f8;}
+			pre{border: 2px solid #d6d6d6; padding: 0px; border-radius: 3px;}
+		</style>
+	</head>
+	<body style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; ">
+		<div>1.掌握XML配置和Annotation编程的区别。
+		</div>
+		<div>2.掌握蟾宫的Annotation配置功能。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div>完全掌握Spring的Annotation API的使用。
+		</div>
+		<div><br />
+		</div>
+		<div>1.配置组件
+		</div>
+		<div><span style="border-collapse: collapse; -webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;"><br /></span>
+			<table style="width: 90%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+				<tbody>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">注解名称
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">说明
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Configuration
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">把一个类作为一个IOC（控制反转）容器，它的某个方法头上如果注册了@Bean，就会作为这个Spring容器中的Bean。
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@ComponentScan
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">把配置类上添加@ComponentScan注解。该注解默认会扫描该类所在的包上的所有的配置类，相当于之前的&lt;context:component-scan&gt;
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Scope
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">用于指定scope作用域的（用在类上）
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Lazy
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">标识延迟初始化
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Conditional
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">Spring4开始提供，它的作用是按照一定的条件进行判断，满足条件给容器注册Bean。 &nbsp;实现Condition接口，
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Import
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">导入外部资源
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">生命周期控制
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">@PostConstruction用于指定初始化方法（用在方法上）<br />@PreDestory用于指定销毁方法（用在方法上）<br />@DependsOn：定义Bean初始化以及销毁时的顺序<br /><a href="@Bean(initMethod = 'addOil',destroyMethod = 'stopCar')">@Bean(initMethod = &quot;addOil&quot;,destroyMethod = &quot;stopCar&quot;)</a>&nbsp;初始化做准备，销毁时执行程序
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br />
+		</div>
+		<div>2.赋值（自动装配）组件
+		</div>
+		<div>
+			<table style="width: 90%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+				<tbody>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">注解名称
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">说明
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Component
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Service
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">用于标注业务层组件
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Controller
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">用于标注控制层组件
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Repository
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">用于标注数据访问组件，即DAO组件。
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Value
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">普通数据类型赋值<br />@Value(&quot;${}&quot;):可以获取对应属性文件中定义的属性值。<br />@Value(&quot;#{}&quot;)：表示SpEl表达式通常用来获取Bean的属性，或者调用bean的某个方法。
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Autowired
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">默认类型装配，如果我们想使用名称装配，可以上结合@Qualifier注解一起使用。
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@PropertySource
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">读取配置文件赋值
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Qualifier
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">如存在多个实例配合使用
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Primary
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">自动装配时当出现多个Bean候选者时，被注解为@Primary的Bean将作为候选者，否则将跑出异常
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Resource
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">默认按名称装配，当找不到与名称匹配的bean才会按类型装配。
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br />
+		</div>
+		<div>3.织入组件
+		</div>
+		<div>
+			<table style="width: 90%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+				<tbody>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">注解名称
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">说明
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">ApplicationContextAware
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">可以通过这个上下文环境对象得到Spring容器中的Bean
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">BeanDefinitionRegistryPostProcessor
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">BeanDefinitionRegistryPostProcessor实现了BeanFactoryPostProcessor接口，<br />是Spring框架的BeanDefinitionRegistry的后处理器，用来注册额外的BeanDefinition
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br />
+		</div>
+		<div>4.切面组件
+		</div>
+		<div><br />
+		</div>
+		<div>
+			<table style="width: 90%; border-collapse: collapse; border: 1px solid gray; border-width: 2px 1px 2px 1px; table-layout: automatic; empty-cells: show; word-break: break-all; margin-left: 0px; background-color: transparent;">
+				<tbody>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">注解名称
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">说明
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@EnableTransactionManagement
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">添加对事务管理的支持
+						</td>
+					</tr>
+					<tr>
+						<td style="border: 1px solid gray; padding: 4px;">@Transaction
+						</td>
+						<td style="border: 1px solid gray; padding: 4px;">配置声明式事务信息
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br />
+		</div>
+		<div>一.bean加载方式 &nbsp;xml方式加载：
+		</div>
+		<div>1.application.xml
+		</div>
+		<div><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a><a href="    <bean id='person' class='com.gupaoedu.project.entity.Person'>
+"><bean id="person" class="com.gupaoedu.project.entity.Person"></bean></a>2.Person
+		</div>
+		<div>3.<a href="ClassPathXmlApplicationContext">ClassPathXmlApplicationContext</a>&nbsp; &nbsp;test
+		</div>
+		<div><br />
+		</div>
+		<div>二.bean加载方式 &nbsp;注解加载到容器中
+		</div>
+		<div>1.Person
+		</div>
+		<div>2. @Configuartion &nbsp;MyConfig(@Bean &nbsp;Person person())
+		</div>
+		<div>3.AnnotationConfigApplicationContext(MyConfig.class) &nbsp; &nbsp; test方法
+		</div>
+		<div>注：getBean()取值模式是方法名，也可以自己取名@Bean(&quot;person&quot;)，优先选用自己的名称
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><span style="color: rgb(77, 77, 77); font-family: -apple-system, 'SF UI Text', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: no-common-ligatures; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">@ComponentScan：默认就会装配标识了@Controller，@Service，@Repository，@Component注解的类到spring容器中，本质是对Component的识别</span>
+		</div>
+		<div>使用ComponentScan自定义：将默认过滤器关闭（UserDefaultFilters）
+		</div>
+		<div><br />
+		</div>
+		<div>三.@Conditional：符合条件的就加载到spring容器中
+		</div>
+		<div>要实现Condition，match方法中有系统变量，可以对相应的系统名称（Windows，Linux做相应的处理），即可以通过外部变量来判断是否bean是否加载到容器中去。
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><br />
+		</div>
+		<div><span style="text-decoration: underline; "><br /></span>
+		</div>
+	</body>
+</html>
