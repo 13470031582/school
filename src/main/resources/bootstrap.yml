@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: school-manage-system
+  cloud:
+    nacos:
+      config:
+        refresh-enabled: true
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        namespace: 1bea58c8-8c9d-4668-82d1-a1b4ad5b3a29
+        username: nacos
+        password: nacos
+        encode: UTF-8
+        enabled: true
+        extension-configs:
+          - data-id: common.yaml
+        group: DEFAULT_GROUP
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        username: ${spring.cloud.nacos.config.username}
+        password: ${spring.cloud.nacos.config.password}
+        group: ${spring.cloud.nacos.config.group}

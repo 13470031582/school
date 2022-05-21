@@ -7,6 +7,8 @@ import com.zq.school.manage.utils.WrapperBeanUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,14 +22,19 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/student")
 @Api(tags = "学生模块")
+@RefreshScope
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
+    @Value("${name:lisi}")
+    private String name;
+
     @PostMapping("/add")
     @ApiOperation("新增学生")
     public Long add(@Valid @RequestBody StudentBO studentBO) {
+        System.out.println("-----------------"+name);
         StudentDTO studentDTO = WrapperBeanUtil.copyProperties(studentBO, StudentDTO.class);
         Long id = studentService.addStudent(studentDTO);
         return id;
