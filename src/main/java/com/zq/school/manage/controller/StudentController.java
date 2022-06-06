@@ -1,5 +1,7 @@
 package com.zq.school.manage.controller;
 
+import com.zq.school.common.exception.controller.ControllerException;
+import com.zq.school.manage.common.SchoolErrorCodeEnum;
 import com.zq.school.manage.pojo.bo.StudentBO;
 import com.zq.school.manage.pojo.dto.StudentDTO;
 import com.zq.school.manage.service.StudentService;
@@ -34,8 +36,10 @@ public class StudentController {
     @PostMapping("/add")
     @ApiOperation("新增学生")
     public Long add(@Valid @RequestBody StudentBO studentBO) {
-        System.out.println("-----------------"+name);
         StudentDTO studentDTO = WrapperBeanUtil.copyProperties(studentBO, StudentDTO.class);
+        if (true) {
+            throw new ControllerException(SchoolErrorCodeEnum.DOCUMENT_NOT_NULL,"测试");
+        }
         Long id = studentService.addStudent(studentDTO);
         return id;
     }
