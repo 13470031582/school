@@ -4,7 +4,7 @@ import com.zq.school.common.exception.ErrorCode;
 import com.zq.school.common.exception.IErrorCode;
 
 public enum SchoolErrorCodeEnum implements IErrorCode {
-    DOCUMENT_NOT_NULL("120004", "{0}不能为空"),
+    SCHOOL_NOT_NULL("120004", "{0}不能为空"),
     ;
     private final ErrorCode errorCode;
 

@@ -38,7 +38,7 @@ public class StudentController {
     public Long add(@Valid @RequestBody StudentBO studentBO) {
         StudentDTO studentDTO = WrapperBeanUtil.copyProperties(studentBO, StudentDTO.class);
         if (true) {
-            throw new ControllerException(SchoolErrorCodeEnum.DOCUMENT_NOT_NULL,"测试");
+            throw new ControllerException(SchoolErrorCodeEnum.SCHOOL_NOT_NULL,"测试");
         }
         Long id = studentService.addStudent(studentDTO);
         return id;
